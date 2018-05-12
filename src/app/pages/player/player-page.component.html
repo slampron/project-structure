@@ -1,0 +1,25 @@
+<button mat-raised-button color="primary" (click)="move()">Move</button>
+<button mat-raised-button color="primary" (click)="attack()">Attack!</button>
+<button mat-raised-button color="primary" (click)="rollDice(1,20)">Roll!</button>
+<br />
+DICE ROLL: {{ diceRoll }}
+<mat-form-field floatLabel="always">
+  <input matInput placeholder="Hero" [value]="player?.name">
+</mat-form-field>
+<br />
+<mat-form-field floatLabel="always">
+  <input matInput placeholder="Weapon" [value]="weapon?.name">
+</mat-form-field>
+
+<mat-list>
+  <h3 mat-subheader>Your Weapons</h3>
+  <mat-list-item mat-line *ngFor="let weapon of weaponInventory">{{ weapon?.name}}</mat-list-item>
+</mat-list>
+
+<mat-form-field floatLabel="always">
+  <mat-select placeholder="Weapon">
+    <mat-option *ngFor="let weapon of weaponInventory" [value]="weapon?.name">
+      {{ weapon?.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
